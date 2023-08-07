@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Content, Theme } from "@carbon/react";
+import { Content, Theme } from '@carbon/react';
 
-import TutorialHeader from "@/components/TutorialHeader/TutorialHeader";
+import TutorialHeader from '@/components/TutorialHeader/TutorialHeader';
 
 const Providers = ({ children }) => {
   return (
