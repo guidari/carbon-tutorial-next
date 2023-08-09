@@ -36,7 +36,8 @@ const TutorialHeader = () => (
         <SideNav
           aria-label="Side navigation"
           expanded={isSideNavExpanded}
-          isPersistent={false}>
+          isPersistent={false}
+        >
           <SideNavItems>
             <HeaderSideNavItems>
               <Link href="/repos" passHref legacyBehavior>
@@ -48,12 +49,14 @@ const TutorialHeader = () => (
         <HeaderGlobalBar>
           <HeaderGlobalAction
             aria-label="Notifications"
-            tooltipAlignment="center">
+            tooltipAlignment="center"
+          >
             <Notification size={20} />
           </HeaderGlobalAction>
           <HeaderGlobalAction
             aria-label="User Avatar"
-            tooltipAlignment="center">
+            tooltipAlignment="center"
+          >
             <UserAvatar size={20} />
           </HeaderGlobalAction>
           <HeaderGlobalAction aria-label="App Switcher" tooltipAlignment="end">
