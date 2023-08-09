@@ -41,7 +41,8 @@ export default function RepoPage() {
                   md={4}
                   lg={7}
                   sm={4}
-                  className="landing-page__tab-content">
+                  className="landing-page__tab-content"
+                >
                   <h2 className="landing-page__subheading">What is Carbon?</h2>
                   <p className="landing-page__p">
                     Carbon is IBM’s open-source design system for digital
@@ -53,7 +54,13 @@ export default function RepoPage() {
                   <Button>Learn more</Button>
                 </Column>
                 <Column md={4} lg={{ span: 8, offset: 7 }} sm={4}>
-                  IMAGE WILL GO HERE
+                  <Image
+                    className="landing-page__illo"
+                    src={TabIlio}
+                    alt="Carbon illustration"
+                    width={100}
+                    height={100}
+                  />
                 </Column>
               </Grid>
             </TabPanel>
@@ -63,7 +70,8 @@ export default function RepoPage() {
                   lg={16}
                   md={8}
                   sm={4}
-                  className="landing-page__tab-content">
+                  className="landing-page__tab-content"
+                >
                   Rapidly build beautiful and accessible experiences. The Carbon
                   kit contains all resources you need to get started.
                 </Column>
@@ -75,7 +83,8 @@ export default function RepoPage() {
                   lg={16}
                   md={8}
                   sm={4}
-                  className="landing-page__tab-content">
+                  className="landing-page__tab-content"
+                >
                   Carbon provides styles and components in Vanilla, React,
                   Angular, and Vue for anyone building on the web.
                 </Column>
@@ -86,15 +95,6 @@ export default function RepoPage() {
       </Column>
       <Column lg={16} md={8} sm={4} className="landing-page__r3">
         <Grid>
-          <Column md={4} lg={{ span: 8, offset: 7 }} sm={4}>
-            <Image
-              className="landing-page__illo"
-              src={TabIlio}
-              alt="Carbon illustration"
-              width={100}
-              height={100}
-            />
-          </Column>
           <Column lg={16} md={8} sm={4} className="landing-page__r3">
             <Grid>
               <Column md={4} lg={4} sm={4}>
@@ -115,7 +115,13 @@ export default function RepoPage() {
             1/4
           </Column>
           <Column md={4} lg={4} sm={4}>
-            1/4
+            2/4
+          </Column>
+          <Column md={4} lg={4} sm={4}>
+            3/4
+          </Column>
+          <Column md={4} lg={4} sm={4}>
+            4/4
           </Column>
         </Grid>
       </Column>
