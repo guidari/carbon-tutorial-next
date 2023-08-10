@@ -1,9 +1,11 @@
 # Carbon Tutorial for NextJS 13
+
 Base NextJS 13 app using IBM Carbon Design System React components
 
 ## Initial Setup
 
 ### Create NextJS 13 app
+
 ```bash
 yarn create next-app
 
@@ -18,7 +20,9 @@ yarn create next-app
 cd carbon-tutorial-next
 yarn dev
 ```
+
 Configure paths in `jsconfig.json`
+
 ```
 {
   "compilerOptions": {
@@ -32,13 +36,16 @@ Configure paths in `jsconfig.json`
 ```
 
 ### Update the NextJS Bootstrap
+
 Modify some of the boostrap code in order to support the Carbon components.
 
 In `app/layout.js` (RootLayout) take out:
+
 ```
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 ```
+
 Take out className tag from <body> and update the meta data.
 
 Then `yarn dev` to confirm.
@@ -46,20 +53,25 @@ Then `yarn dev` to confirm.
 ## Tutorial Step 1 actions
 
 ### Install Carbon
+
 ```bash
 yarn add @carbon/react@1.33.0
 ```
 
 ### Styling SaaS
+
 In `src/app` change `global.css` to `.scss` and change import in `layout.js`.
 
 and delete `.css` imports in `page.js`.
 Change import
+
 ```bash
 yarn add sass@1.63.6
 yarn dev
 ```
+
 Overwrite contents in `global.scss` from React `src/index.scss`:
+
 ```bash
 @use '@carbon/react';
 
@@ -82,12 +94,15 @@ Overwrite contents in `global.scss` from React `src/index.scss`:
 ```
 
 #### Stylesheet strategy
-Root Layout `layout.js` imports `./global.scss` which uses `./{dir}/{page-name}.scss`. These file names need to be unique.  This is because the app structure for the Tutorial is not using Next CSS Modules and requires that the CSS definitions do not clash e.g. `.landing-page__banner` and `.repo-page__banner`.
+
+Root Layout `layout.js` imports `./global.scss` which uses `./{dir}/{page-name}.scss`. These file names need to be unique. This is because the app structure for the Tutorial is not using Next CSS Modules and requires that the CSS definitions do not clash e.g. `.landing-page__banner` and `.repo-page__banner`.
 
 We don't need to do the `import './app.scss';` step of the tutorial for Next.
 
 ### First Page changes
+
 In `src/app/page.js` change code to
+
 ```
 'use client'
 
@@ -99,10 +114,13 @@ export default function Home() {
   )
 }
 ```
+
 We need `use client` since the Carbon components we use are all client components. In Next 13 pages are pulled in as children to layout files (see RootLayout `src/app/layout.js`) and these are always server side components.
 
 ### Add UI Shell
+
 Create a components folder and a header component
+
 ```src/components/TutorialHeader
 ├──_tutorial-header.scss
 └──TutorialHeader.js
@@ -112,6 +130,7 @@ Add `@use '@/components/TutorialHeader/tutorial-header';` to `global.scss`.
 Install icons with `yarn add @carbon/icons-react`.
 
 Create TutorialHeader.js
+
 ```
 'use client'
 
@@ -151,7 +170,7 @@ const TutorialHeader = () => (
             <HeaderName prefix="IBM">
               Carbon Tutorial
             </HeaderName>
-          </Link>     
+          </Link>
            <HeaderNavigation aria-label="Carbon Tutorial">
               <Link href="/repos" passHref legacyBehavior>
                 <HeaderMenuItem >
@@ -195,14 +214,18 @@ const TutorialHeader = () => (
 
 export default TutorialHeader;
 ```
+
 Things differet to Reach to note
+
 - `use client` since we have created a new component that pulls in `carbon/react` components
-- <Link> wrapping of Carbon components and its NextJS import 
+- <Link> wrapping of Carbon components and its NextJS import
 
 ### Use the Providers pattern
+
 We can wrap the `{children}` in Root Layout with a Provider component that will use to hold the components we want across all pages. See this [explanation](https://nextjs.org/docs/getting-started/react-essentials#rendering-third-party-context-providers-in-server-components) in Next docs.
 
 `app/layout.js`
+
 ```
 import './globals.scss'
 import { Providers } from './providers';
@@ -224,7 +247,9 @@ export default function RootLayout({ children }) {
   )
 }
 ```
+
 Add `app/providers.js` component that builds the UI Shell.
+
 ```
 'use client'
 
@@ -245,7 +270,9 @@ export function Providers({ children }) {
   )
 }
 ```
+
 At this point in the consoler you will see this warning:
+
 ```
 Warning: Content: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.
 ```
@@ -253,7 +280,9 @@ Warning: Content: Support for defaultProps will be removed from function compone
 There will be an upcoming change to Carbon React components to not use `defaultProps` see [here](https://github.com/carbon-design-system/carbon/issues/13424)
 
 ### Add First Pages
-Create a `LandingPage` as our home page which will be pulled into the root page `app/page.js` and a second `RepoPage` and their `.scss` files. In Next 13 page routes are defined by the name of their leaf folder and a `page.js` component. 
+
+Create a `LandingPage` as our home page which will be pulled into the root page `app/page.js` and a second `RepoPage` and their `.scss` files. In Next 13 page routes are defined by the name of their leaf folder and a `page.js` component.
+
 ```
 src/app/home
 ├── _landing-page.scss
@@ -263,13 +292,16 @@ src/app/repos
 ├── index.js
 └── page.js
 ```
+
 Add Sass to `globals.scss`
+
 ```
 @use '@/app/home/landing-page';
 @use '@/app/repos/repo-page';
 ```
 
 LandingPage
+
 ```
 ``use client`
 
@@ -281,7 +313,9 @@ function LandingPage() {
 
 export default LandingPage;
 ```
+
 RepoPage
+
 ```
 `use client`
 
@@ -295,6 +329,7 @@ export default RepoPage;
 ```
 
 and change `app/page.js` to pull in LandingPage
+
 ```
 import LandingPage from './home/page';
 
@@ -304,10 +339,13 @@ export default function Page() {
 ```
 
 ### Routing
+
 Don't need to add the React routing since all in built with `AppRouter` in NextJS.
 
 ### Styling
+
 Add to `_tutorial-header.scss`
+
 ```
 @use '@carbon/react/scss/colors';
 
@@ -324,6 +362,3 @@ Add to `_tutorial-header.scss`
 ```
 
 ## Tutorial Step 2 actions
-
-
-
