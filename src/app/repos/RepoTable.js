@@ -34,7 +34,8 @@ const RepoTable = ({ rows, headers }) => {
       }) => (
         <TableContainer
           title="Carbon Repositories"
-          description="A collection of public Carbon repositories.">
+          description="A collection of public Carbon repositories."
+        >
           <Table {...getTableProps()}>
             <TableHead>
               <TableRow>
