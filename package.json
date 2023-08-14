@@ -2,22 +2,32 @@
   "name": "carbon-tutorial-next",
   "version": "0.1.0",
   "private": true,
+  "repository": "git@github.com:carbon-design-system/carbon-tutorial-next.git",
+  "bugs": "https://github.com/carbon-design-system/carbon-tutorial-next/issues",
+  "license": "Apache-2.0",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ci-check": "yarn format:diff",
+    "clean": "yarn cache clean && yarn install",
+    "format": "prettier --write \"**/*.{js,md,scss}\"",
+    "format:diff": "prettier --list-different \"**/*.{js,md,scss}\"",
+    "format:staged": "prettier --write"
   },
   "dependencies": {
-    "@carbon/icons-react": "^11.22.1",
-    "@carbon/react": "1.33.0",
-    "@octokit/core": "4.2.0",
-    "encoding": "^0.1.13",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "next": "13.4.9",
+    "prettier": "^2.8.8",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "1.63.6"
+    "react-dom": "18.2.0"
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
