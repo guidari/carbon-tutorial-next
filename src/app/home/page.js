@@ -12,7 +12,6 @@ import {
   Column,
 } from '@carbon/react';
 import Image from 'next/image';
-import TabIlio from '../../../public/images/tab-ilio.jpg';
 
 export default function RepoPage() {
   return (
@@ -41,8 +40,7 @@ export default function RepoPage() {
                   md={4}
                   lg={7}
                   sm={4}
-                  className="landing-page__tab-content"
-                >
+                  className="landing-page__tab-content">
                   <h2 className="landing-page__subheading">What is Carbon?</h2>
                   <p className="landing-page__p">
                     Carbon is IBM’s open-source design system for digital
@@ -56,7 +54,7 @@ export default function RepoPage() {
                 <Column md={4} lg={{ span: 8, offset: 7 }} sm={4}>
                   <Image
                     className="landing-page__illo"
-                    src={TabIlio}
+                    src="/images/tab-ilio.jpg"
                     alt="Carbon illustration"
                     width={100}
                     height={100}
@@ -70,8 +68,7 @@ export default function RepoPage() {
                   lg={16}
                   md={8}
                   sm={4}
-                  className="landing-page__tab-content"
-                >
+                  className="landing-page__tab-content">
                   Rapidly build beautiful and accessible experiences. The Carbon
                   kit contains all resources you need to get started.
                 </Column>
@@ -83,8 +80,7 @@ export default function RepoPage() {
                   lg={16}
                   md={8}
                   sm={4}
-                  className="landing-page__tab-content"
-                >
+                  className="landing-page__tab-content">
                   Carbon provides styles and components in Vanilla, React,
                   Angular, and Vue for anyone building on the web.
                 </Column>
